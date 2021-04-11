@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import toastr from 'toastr';
-import Auth from './helper/Auth';
+import Auth from '../../helper/Auth';
 // import axios from 'axios';
 
 class Register extends Component{
