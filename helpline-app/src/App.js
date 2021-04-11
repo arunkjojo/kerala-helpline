@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Link
@@ -12,7 +12,6 @@ import Logout from './Logout';
 import Register from './Register';
 import Home from './pages/home/Home';
 import Public from './pages/public/Public';
-import history from './helper/history';
 import Auth from './helper/Auth';
 
 class App extends React.Component{
@@ -21,10 +20,11 @@ class App extends React.Component{
     // console.log("auth status", Auth.isAuth());
     return(
       
-      <Router  history={history}>
+      <BrowserRouter>
         <div className="container">
           <div className="container">
             <Link to="/login">Login</Link>&nbsp;&nbsp;&nbsp;
+            <Link to="/register">Register</Link>&nbsp;&nbsp;&nbsp;
             <Link to="/home">Home</Link>&nbsp;&nbsp;&nbsp;
             {Auth.isAuth() && <Link to="/logout">Logout</Link>}
           </div>
@@ -39,7 +39,7 @@ class App extends React.Component{
             {/* <Route path="/home" component={Home}/> */}
           </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
   
