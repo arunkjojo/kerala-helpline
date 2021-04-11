@@ -42,7 +42,7 @@ class Login extends Component{
         Auth.login(dat).then(response=>{
           console.log(response.data.user);
           if(Auth.isAuth()){
-            this.props.history.push('/home');
+            this.props.history.push('/app/home');
           }
         }).catch(error => {
           

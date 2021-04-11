@@ -12,6 +12,14 @@ import Home from './Home';
 import './public.css';
 
 class Public extends React.Component{
+
+  componentDidMount() {
+    document.getElementById('body').className='public';
+  }
+
+  componentWillUnmount() {
+    document.getElementById('body').className='';
+  }
  
   render(){
       // redirect to login if not auth, else go to home
@@ -23,19 +31,19 @@ class Public extends React.Component{
           <div>
             <h3 className="float-md-start mb-0">Helpline Kerala</h3>
             <nav className="nav nav-masthead justify-content-center float-md-end">
-              <Link className="nav-link active"  to="/">Home</Link>
-              <Link className="nav-link"  to="/login">Login</Link>
-              <Link className="nav-link"  to="/register">Register</Link>
+              <Link className="nav-link active"  to="/public">Home</Link>
+              <Link className="nav-link"  to="/public/login">Login</Link>
+              <Link className="nav-link"  to="/public/register">Register</Link>
             </nav>
           </div>
         </header>
 
         <main className="px-3">
           <Switch>
-            <Route path="/" exact component={Home}/> 
-            <Route path="/login" component={Login}/>
-            <Route path="/forgotpassword" component={ForgotPassword}/>
-            <Route path="/register" component={Register}/>
+            <Route path="/public/" exact component={Home}/> 
+            <Route path="/public/login" component={Login}/>
+            <Route path="/public/forgotpassword" component={ForgotPassword}/>
+            <Route path="/public/register" component={Register}/>
           </Switch>
         </main>
 
