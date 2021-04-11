@@ -1,12 +1,51 @@
 import React from 'react';
 
+import {
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+import Login from './Login';
+import ForgotPassword from './ForgotPassword';
+import Register from './Register';
+import Home from './Home';
+import './public.css';
+
 class Public extends React.Component{
  
   render(){
       // redirect to login if not auth, else go to home
     return(
-      <div>
-          Public
+      <div className="d-flex h-100 text-center text-white bg-blue">
+    
+      <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header className="mb-auto">
+          <div>
+            <h3 className="float-md-start mb-0">Helpline Kerala</h3>
+            <nav className="nav nav-masthead justify-content-center float-md-end">
+              <Link className="nav-link active"  to="/">Home</Link>
+              <Link className="nav-link"  to="/login">Login</Link>
+              <Link className="nav-link"  to="/register">Register</Link>
+            </nav>
+          </div>
+        </header>
+
+        <main className="px-3">
+          <Switch>
+            <Route path="/" exact component={Home}/> 
+            <Route path="/login" component={Login}/>
+            <Route path="/forgotpassword" component={ForgotPassword}/>
+            <Route path="/register" component={Register}/>
+          </Switch>
+        </main>
+
+        <footer className="mt-auto text-white-50">
+          <p>Project work done at <a  className="text-white">IHRD Manjeswar</a>, by 
+          <a target="_blank" href="https://twitter.com/arunjojo" className="text-white">@arunjojo</a>, 
+          <a target="_blank" href="https://twitter.com/ravikiran" className="text-white">@ravikiran.p</a> and 
+          <a target="_blank" href="https://twitter.com/prajina.k" className="text-white">@prajina.k</a></p>
+        </footer>
+      </div>
       </div>
     );
   }
