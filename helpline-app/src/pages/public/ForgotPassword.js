@@ -21,6 +21,7 @@ class ForgotPassword extends Component{
     if(e.target.value && e.target.name){
       this.setState({ [e.target.name] : (e.target.value)});
     }
+    console.log(this.state);
   }
 
     forgotForm = (e)=>{
@@ -37,7 +38,7 @@ class ForgotPassword extends Component{
       if(dat.mobile.length<10){
         toastr.warning("Mobile number must be 10 digits", "Invalid Details");
       }
-      if(dat.password.length >= 8 && dat.mobile.length>=10){
+      if(dat.password.length >= 8 && dat.mobile.length===10){
         // eslint-disable-next-line react-hooks/rules-of-hooks
         // console.log(dat.mobile+' '+dat.password);
         Auth.forgotPassword(dat).then(response=>{
@@ -48,7 +49,7 @@ class ForgotPassword extends Component{
         }).catch(error => {
           
           // Override global options
-          toastr.error("The entered information's are invalid, Please try again or Signup", "Invalid Details");
+          toastr.error("The provided credentials are invalid, Please try again or Signup", "Invalid Details");
 
           // console.error("error", error);
         });

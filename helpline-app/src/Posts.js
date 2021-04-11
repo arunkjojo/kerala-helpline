@@ -14,7 +14,7 @@ class Posts extends React.Component{
 
     componentDidMount()
     {
-        axios.get('http://localhost/api/api_postdata.php')
+        axios.get('http://api.helplinekerala.com/postdata.php')
         .then( response =>{
             // handle success
             // console.log(response.data);
