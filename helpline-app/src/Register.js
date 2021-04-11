@@ -24,9 +24,9 @@ class Register extends Component{
 
 
     inputSet = (e)=>{
-        // console.log(e.target.name+' '+e.target.value);
-        // debugger;
-            this.setState({ [e.target.name] : (e.target.value)});
+        console.log(e.target.name+' '+e.target.value);
+        this.setState({ [e.target.name] : (e.target.value)});
+        console.log(this.state);
         
     }
 
@@ -100,7 +100,7 @@ class Register extends Component{
         let localList = this.state.localbodies.length > 0 && this.state.localbodies.map(function (lb,i) {
             return <option key={i} value={lb.id}>{lb.name}</option>;
         })
-        console.log(localList);
+        
         return(
             <div className="container">
                 <form className="form-group" noValidate>
@@ -149,8 +149,9 @@ class Register extends Component{
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="localbody">Choose Local body</label>
-                        <select onChange={this.inputSet} className="form-control" id="district" name="district" required noValidate>
+                        <label htmlFor="localbody">Choose localbody</label>
+                        <select onChange={this.inputSet} className="form-control" id="localbody" name="localbody" required noValidate>
+                            <option selected disabled>Select your localbody</option>
                             { localList }
                         </select>
                     </div>
