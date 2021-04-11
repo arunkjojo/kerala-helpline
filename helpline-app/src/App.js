@@ -3,12 +3,10 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Link
+  Redirect
 } from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
-
-import Home from './pages/home/Home';
 import Public from './pages/public/Public';
+import Private from './pages/private/Private';
 import Auth from './helper/Auth';
 
 class App extends React.Component{
@@ -18,10 +16,18 @@ class App extends React.Component{
     return(
       
       <BrowserRouter>
-          <Public/>
-          <Switch>
-            <ProtectedRoute path="/home" component={Home}/>
-          </Switch>
+        <Switch>
+          <Route path="/public"> 
+            {!Auth.isAuth() && <Public/>}
+          </Route>
+          
+          <Route path="/app"> 
+            {Auth.isAuth() && <Private/>}
+          </Route>
+          <Route exact path="/">
+          {Auth.isAuth() ? <Redirect to="/app" /> : <Redirect to="/public" />}
+        </Route>
+        </Switch>
       </BrowserRouter>
     );
   }
