@@ -19,6 +19,9 @@
   text-shadow: none; /* Prevent inheritance from `body` */
 }
 
+.bg-blue{
+    background-color: #306497!important;
+}
 
 /*
  * Base structure
