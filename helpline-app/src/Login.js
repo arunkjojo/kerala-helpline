@@ -47,7 +47,7 @@ class Login extends Component{
         }).catch(error => {
           
           // Override global options
-          toastr.error("The entered information's are invalid, Please try again or Signup", "Invalid Details");
+          toastr.error("The provided credentials are invalid, Please try again or Signup", "Invalid Details");
 
           // console.error("error", error);
         });

@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
         this.authenticated=false;
     }
     register(cred){
-        return axios.post("http://localhost/api/api_register.php",cred)
+        return axios.post("http://api.helplinekerala.com/api_register.php",cred)
         .then(response=>{
             // console.log("register user", response);
             Cookies.set('user', response.data.user, { expires: 7 });
@@ -18,7 +18,7 @@ import Cookies from 'js-cookie';
         })
     }
     login(cred){
-        return axios.post("http://localhost/api/api_login.php",cred)
+        return axios.post("http://api.helplinekerala.com/api_login.php",cred)
         .then(response=>{
             // console.log("login user", response.data.user);
             Cookies.set('user', response.data.user, { expires: 7 });
@@ -30,7 +30,7 @@ import Cookies from 'js-cookie';
         })
     }
     forgotPassword(cred){
-        return axios.post("http://localhost/api/api_forgotpassword.php",cred)
+        return axios.post("http://api.helplinekerala.com/api_forgotpassword.php",cred)
         .then(response=>{
             // console.log("forgotPassword user", response.data.user);
             Cookies.set('user', response.data.user, { expires: 7 });
@@ -56,6 +56,18 @@ import Cookies from 'js-cookie';
             this.authenticated = true;
         }
         return this.authenticated;
+    }
+
+    localBody(id){
+        return axios.post("http://api.helplinekerala.com/localbody.php",{
+            did: id,
+          })
+        .then(response=>{
+            return response;
+        })
+        .catch(error => {
+            throw error;
+        })
     }
 }
 export default new Auth();
