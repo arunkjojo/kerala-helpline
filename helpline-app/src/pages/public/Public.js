@@ -6,7 +6,7 @@ class Public extends React.Component{
       // redirect to login if not auth, else go to home
     return(
       <div>
-          Public
+          Public view
       </div>
     );
   }
