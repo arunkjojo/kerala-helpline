@@ -15,24 +15,46 @@ class Private extends React.Component{
     super(props);
   }
 
+  componentDidMount() {
+    document.getElementById('body').className='private';
+  }
+
+  componentWillUnmount() {
+    document.getElementById('body').className='';
+  }
+
   render(){
     return(
       <div>
-        <header className="mb-auto">
-          <div>
-            <h3 className="float-md-start mb-0">Helpline Kerala</h3>
-            <nav className="nav nav-masthead justify-content-center float-md-end">
-              <Link className="nav-link active"  to="/home">Home</Link>
-              <Link className="nav-link"  to="/logout">Logout</Link>
-              <Link className="nav-link"  to="/create">Add Post</Link>
-            </nav>
-          </div>
+        <header>
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Helpline Kerala</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item">
+                    <Link className="nav-link active"  to="/app/home">Home</Link>
+                  </li>
+                  <li class="nav-item">
+                  <Link className="nav-link"  to="/app/create">Add Post</Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link className="nav-link"  to="/app/logout">Logout</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
         </header>
-        <main className="px-3">
+
+        <main className="px-3 mt-menu">
           <Switch>
-            <ProtectedRoute path="/home" exact component={Posts}/> 
-            <ProtectedRoute path="/create" component={Addpost}/>
-            <ProtectedRoute path="/logout" component={Logout}/>
+            <ProtectedRoute path="/app" exact component={Posts}/> 
+            <ProtectedRoute path="/app/create" component={Addpost}/>
+            <ProtectedRoute path="/app/logout" component={Logout}/>
           </Switch>
         </main>
       </div>  

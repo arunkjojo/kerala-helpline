@@ -12,6 +12,14 @@ import Home from './Home';
 import './public.css';
 
 class Public extends React.Component{
+
+  componentDidMount() {
+    document.getElementById('body').className='public';
+  }
+
+  componentWillUnmount() {
+    document.getElementById('body').className='';
+  }
  
   render(){
       // redirect to login if not auth, else go to home
