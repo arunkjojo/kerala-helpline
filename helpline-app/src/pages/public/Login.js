@@ -13,7 +13,7 @@ class Login extends Component{
     }
     this.loginForm = this.loginForm.bind(this);
     if(Auth.isAuth()){
-      this.props.history.push('/home');
+      this.props.history.push('/app/home');
     }
   }
 
@@ -73,8 +73,7 @@ class Login extends Component{
           </div>
         </form>
         <div className="container">
-          <Link to="/register">Register</Link>&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link to="/forgotpassword">Forgot Password</Link>
+          <Link to="./forgotpassword">Forgot Password</Link>
         </div>
       </div>
       

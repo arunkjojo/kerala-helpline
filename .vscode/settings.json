@@ -4,18 +4,21 @@
         "styled-css"
     ],
     "cSpell.ignoreWords": [
+        "a",
         "addpost",
         "address",
         "adhaar",
         "alappuzha",
         "assects",
         "cann't",
+        "class",
         "cpass",
         "cpassword",
         "currosponding",
         "ernakulam",
         "forgotpassword",
         "hosdurg",
+        "ihrd",
         "kannur",
         "kasaragod",
         "kollam",
@@ -24,10 +27,13 @@
         "localbody",
         "malappuram",
         "manjeshwaram",
+        "manjeswar",
+        "name",
         "palakkad",
         "panchayath",
         "panjayath",
         "pathanamthitta",
+        "text",
         "thiruvananthapuram",
         "thrissur",
         "toastr",
@@ -36,6 +42,7 @@
         "usrtype",
         "vellarikkund",
         "veryfied",
-        "wayanad"
+        "wayanad",
+        "white"
     ]
 }

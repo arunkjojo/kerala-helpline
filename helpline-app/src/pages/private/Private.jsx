@@ -1,7 +1,7 @@
 import React from 'react';
 import Posts from './Posts';
 import Addpost from './Addpost';
-import Logout from './Posts';
+import Logout from './Logout';
 import ProtectedRoute from './ProtectedRoute';
 import {
   Switch,
@@ -29,7 +29,7 @@ class Private extends React.Component{
         <header>
           <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Helpline Kerala</a>
+              <Link className="nav-link active" >Helpline Kerala</Link>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>

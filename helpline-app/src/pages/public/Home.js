@@ -21,7 +21,7 @@ class Home extends Component{
             <div class="row g-5 py-5">
                 <div class="col-md-6 align-items-start">
                         <h2>Technology Stack</h2>
-                        <p>This project is developed with latest enterprise technologies and system design in mind. We have developed the front end of this application in React.JS, We have APIs developed in PHP and store data in MySQL. Mobile centric desgin achived using twitter bootstrap libraries.</p>
+                        <p>This project is developed with latest enterprise technologies and system design in mind. We have developed the front end of this application in React.JS, We have APIs developed in PHP and store data in MySQL. Mobile centric design achieved using twitter bootstrap libraries.</p>
                 </div>
                 
                 <div class="col-md-6 align-items-start">

@@ -43,7 +43,7 @@ import Cookies from 'js-cookie';
     }
     logout(){
         Cookies.remove('user');
-        this.authenticated=false; 
+        this.authenticated=false;
         // console.log(Cookies.get('user'));
     }
 
