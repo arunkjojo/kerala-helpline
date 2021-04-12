@@ -12,7 +12,7 @@ class ForgotPassword extends Component{
     }
     this.forgotForm = this.forgotForm.bind(this);
     if(Auth.isAuth()){
-      this.props.history.push('/home');
+      this.props.history.push('/app/home');
     }
   }
 
@@ -21,7 +21,7 @@ class ForgotPassword extends Component{
     if(e.target.value && e.target.name){
       this.setState({ [e.target.name] : (e.target.value)});
     }
-    console.log(this.state);
+    // console.log(this.state);
   }
 
     forgotForm = (e)=>{
@@ -44,7 +44,7 @@ class ForgotPassword extends Component{
         Auth.forgotPassword(dat).then(response=>{
           //console.log(response.data.user);
           if(Auth.isAuth()){
-            this.props.history.push('/home');
+            this.props.history.push('/app/home');
           }
         }).catch(error => {
           

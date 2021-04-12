@@ -4,7 +4,7 @@ class Logout extends Component{
   constructor(props){
     super(props);
     Auth.logout();
-    this.props.history.push('/');
+    window.location.replace('/');
   }
   render() {
     return null;
