@@ -21,6 +21,10 @@ class Addpost extends React.Component{
     }
 
     componentDidMount() {
+        if("geolocation" in navigator)
+            toastr.success("Location are available");
+        else
+            toastr.primary("Location not available");
         navigator.geolocation.getCurrentPosition((position)=> {
             let lat=position.coords.latitude;
             let lon=position.coords.longitude;
@@ -61,10 +65,10 @@ class Addpost extends React.Component{
             latitudeValue : this.state.latitudeValue,
             longitudeValue : this.state.longitudeValue
         }
-        console.log(dat);
-        if((!dat.latitudeValue) && (!dat.longitudeValue)){
-            toastr.warning("Enable your location, it useful to HELPERS", "Enable your location!");
-        }
+        // console.log(dat);
+        // if((!dat.latitudeValue) && (!dat.longitudeValue)){
+        //     toastr.warning("Enable your location, it useful to HELPERS", "Enable your location!");
+        // }
         if((dat.message==='') && (dat.assects==='')){
             toastr.warning("What you need", "Inform to HELPERS!");
         }
@@ -72,7 +76,15 @@ class Addpost extends React.Component{
             toastr.warning("Who can see your request?", "Who can see?");
         }
         if(dat.user_id !== '' && dat.latitudeValue !== '' && dat.longitudeValue !== '' && (dat.message !== '' || dat.assects !== '')){
-            axios.post('http://api.helplinekerala.com/add_post.php',dat);
+            axios.post('http://api.helplinekerala.com/add_post.php',dat)
+            .then( response =>{
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
         }
     }
 
