@@ -65,7 +65,7 @@ class Addpost extends React.Component{
             latitudeValue : this.state.latitudeValue,
             longitudeValue : this.state.longitudeValue
         }
-        console.log(dat);
+        // console.log(dat);
         // if((!dat.latitudeValue) && (!dat.longitudeValue)){
         //     toastr.warning("Enable your location, it useful to HELPERS", "Enable your location!");
         // }
@@ -76,7 +76,15 @@ class Addpost extends React.Component{
             toastr.warning("Who can see your request?", "Who can see?");
         }
         if(dat.user_id !== '' && dat.latitudeValue !== '' && dat.longitudeValue !== '' && (dat.message !== '' || dat.assects !== '')){
-            axios.post('http://api.helplinekerala.com/add_post.php',dat);
+            axios.post('http://api.helplinekerala.com/add_post.php',dat)
+            .then( response =>{
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
         }
     }
 

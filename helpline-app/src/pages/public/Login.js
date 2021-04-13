@@ -37,7 +37,7 @@ class Login extends Component{
         toastr.warning("Password must be minimum 8 characters", "Invalid Password Details");
       }if(dat.mobile.length < 10){
         toastr.warning("Mobile number must be minimum 10 digit", "Invalid Mobile Details");
-      }if(dat.password.length >= 8 && dat.mobile.length>=10){
+      }if(dat.password.length >= 8 && dat.mobile.length===10){
         // console.log(dat.mobile+' '+dat.password);
         Auth.login(dat).then(response=>{
           console.log(response.data.user);

@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 // import { Image } from "react-bootstrap";
-import profile from '../../KHL_logo.png'
 import moment from 'moment';
 class Posts extends React.Component{
     
