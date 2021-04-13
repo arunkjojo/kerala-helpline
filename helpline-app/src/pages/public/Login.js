@@ -35,9 +35,11 @@ class Login extends Component{
     // eslint-disable-next-line react-hooks/rules-of-hooks
       if(dat.password.length < 8){
         toastr.warning("Password must be minimum 8 characters", "Invalid Password Details");
-      }if(dat.mobile.length < 10){
-        toastr.warning("Mobile number must be minimum 10 digit", "Invalid Mobile Details");
-      }if(dat.password.length >= 8 && dat.mobile.length===10){
+      }if(dat.password.length > 16){
+        toastr.warning("Password must be maximum 16 characters", "Invalid Password Details");
+      }if(dat.mobile.length !== 10){
+        toastr.warning("Please enter correct mobile number", "Invalid Mobile Details");
+      }if(dat.password.length > 7 && dat.password.length < 17 && dat.mobile.length===10){
         // console.log(dat.mobile+' '+dat.password);
         Auth.login(dat).then(response=>{
           console.log(response.data.user);

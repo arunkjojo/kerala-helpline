@@ -69,6 +69,12 @@ class Register extends Component{
             if(dat.usrtype.length < 1){
                 toastr.warning("User type must be select", "Enter User Type");
             }
+            if(dat.password.length < 8){
+                toastr.warning("Password must be minimum 8 characters", "Invalid password");
+            }
+            if(dat.password.length > 16){
+                toastr.warning("Password must be maximum 16 characters", "Invalid password");
+            }
             if(dat.dist.length < 1){
                 toastr.warning("Your district must be select", "Select Your District");
             }
@@ -84,9 +90,7 @@ class Register extends Component{
             if(dat.address.length < 1){
                 toastr.warning("Your address must be enter", "Enter Your Address");
             }
-            if(dat.mobile.length < 10){
-                toastr.warning("Mobile number must be minimum 10 digit", "Invalid Mobile Details");
-            }if(dat.mobile.length > 10){
+            if(dat.mobile.length !== 10){
                 toastr.warning("Enter Valid Mobile number", "Invalid Mobile Details");
             }
             if(dat.user.length > 0 && dat.usrtype.length > 0 && dat.dist.length > 0 && dat.localbody.length > 0 && dat.area.length > 1 && dat.blood.length > 0 && dat.address.length > 1 && dat.password.length >= 8 && dat.mobile.length === 10){
