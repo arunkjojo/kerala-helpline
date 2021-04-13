@@ -21,7 +21,7 @@ class Login extends Component{
     }
     this.loginForm = this.loginForm.bind(this);
     if(Auth.isAuth()){
-      this.props.history.push('/app');
+      this.props.history.push('/app/');
     }
   }
 
@@ -61,7 +61,7 @@ class Login extends Component{
         Auth.login(dat).then(response=>{
           console.log(response.data.user);
           if(Auth.isAuth()){
-            this.props.history.push('/app');
+            this.props.history.push('/app/');
           }
         }).catch(error => {
           

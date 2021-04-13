@@ -12,7 +12,7 @@ class ForgotPassword extends Component{
     }
     this.forgotForm = this.forgotForm.bind(this);
     if(Auth.isAuth()){
-      this.props.history.push('/app/home');
+      this.props.history.push('/app/');
     }
   }
 
@@ -44,7 +44,7 @@ class ForgotPassword extends Component{
         Auth.forgotPassword(dat).then(response=>{
           //console.log(response.data.user);
           if(Auth.isAuth()){
-            this.props.history.push('/app/home');
+            this.props.history.push('/app/');
           }
         }).catch(error => {
           

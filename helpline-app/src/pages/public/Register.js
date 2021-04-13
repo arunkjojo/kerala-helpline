@@ -28,7 +28,7 @@ class Register extends Component{
         }
         this.registerForm = this.registerForm.bind(this);
         if(Auth.isAuth()){
-            this.props.history.push('/app');
+            this.props.history.push('/app/');
         }
     }
 
@@ -116,20 +116,20 @@ class Register extends Component{
                 toastr.warning("Your blood group must be select", "Select Your Blood Group");
             }
             // console.log('inside of 1st if ');
-            console.log('user '+dat.user.length+' usrtype '+dat.usrtype.length+' dist '+dat.dist.length+' localbody '+dat.localbody.length+' area '+dat.area.length+' blood '+dat.blood.length+' password '+dat.password.length+' mobile '+dat.mobile.length);
+            // console.log('user '+dat.user.length+' usrtype '+dat.usrtype.length+' dist '+dat.dist.length+' localbody '+dat.localbody.length+' area '+dat.area.length+' blood '+dat.blood.length+' password '+dat.password.length+' mobile '+dat.mobile.length);
 
             if(dat.user.length > 0 && dat.usrtype.length > 0 && dat.dist.length > 0 && dat.localbody.length > 0 && dat.area.length > 1 && dat.blood.length > 0 && (dat.password.length >=8  && dat.password.length <= 16) && dat.mobile.length === 10){
-                console.log('inside of 2nd if ',dat);
-                // Auth.register(dat).then(response=>{
-                //     console.log(response.data.user);
-                //     if(Auth.isAuth()){
-                //         this.props.history.push('/app');
-                //     }
-                // })
-                // .catch(error => {
-                //     toastr.error("The provided credentials are already exist, Please try Login", "Already Exist");
-                //     // console.error(error);
-                // });
+                // console.log('inside of 2nd if ',dat);
+                Auth.register(dat).then(response=>{
+                    console.log(response.data.user);
+                    if(Auth.isAuth()){
+                        this.props.history.push('/app/');
+                    }
+                })
+                .catch(error => {
+                    toastr.error("The provided credentials are already exist, Please try Login", "Already Exist");
+                    // console.error(error);
+                });
             }
             // console.log(dat);
         }else{
@@ -237,7 +237,7 @@ class Register extends Component{
                     </div>
                 </form>
                 <div className="container">
-                    <Link to="/login">I am already register in this application, Login</Link>
+                    <Link to="./login">I am already register in this application, Login</Link>
                 </div>
             </div>
         );

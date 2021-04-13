@@ -36,10 +36,13 @@ class Private extends React.Component{
               <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                   <li class="nav-item">
-                    <Link className="nav-link active"  to="/app/home">Home</Link>
+                    <Link className="nav-link active"  to="/app/">Home</Link>
                   </li>
                   <li class="nav-item">
-                  <Link className="nav-link"  to="/app/create">Add Post</Link>
+                    <Link className="nav-link"  to="/app/create">Add Post</Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link className="nav-link"  to="/app/">Profile</Link>
                   </li>
                   <li class="nav-item">
                     <Link className="nav-link"  to="/app/logout">Logout</Link>
