@@ -2,6 +2,13 @@ import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import toastr from 'toastr';
 import Auth from '../../helper/Auth';
+
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Input from "@material-ui/core/Input";
+
 // import history from './helper/history';
 
 class Login extends Component{
@@ -9,11 +16,12 @@ class Login extends Component{
     super(props);
     this.state = {
       mobileNumber : "",
-      password: ""
+      password: "",
+      showPassword: false
     }
     this.loginForm = this.loginForm.bind(this);
     if(Auth.isAuth()){
-      this.props.history.push('/app/home');
+      this.props.history.push('/app');
     }
   }
 
@@ -22,7 +30,16 @@ class Login extends Component{
     if(e.target.value && e.target.name){
       this.setState({ [e.target.name] : (e.target.value)});
     }
+    console.log(this.state);
   }
+
+  handleClickShowPassword = () => {
+    this.setState({showPassword: !this.state.showPassword });
+  };
+  
+  handleMouseDownPassword = (e) => {
+    e.preventDefault();
+  };
 
   loginForm = (e)=>{
     e.preventDefault();
@@ -44,7 +61,7 @@ class Login extends Component{
         Auth.login(dat).then(response=>{
           console.log(response.data.user);
           if(Auth.isAuth()){
-            this.props.history.push('/app/home');
+            this.props.history.push('/app');
           }
         }).catch(error => {
           
@@ -64,11 +81,25 @@ class Login extends Component{
         <form className="form-group">
           <div className="form-group">
             <label htmlFor="mobile">Mobile Number</label>
-            <input type="number" minLength="10" autoFocus onChange={this.inputSet} className="form-control" id="mobile" name="mobileNumber"/>
+            <Input type="number" autoFocus onChange={this.inputSet} className="form-control" id="mobile" name="mobileNumber"/>
           </div>
           <div className="form-group">
             <label htmlFor="pass">Password</label>
-            <input type="password" minLength="8" onChange={this.inputSet} className="form-control" id="pass" name="password" />
+            <Input 
+              type={
+                this.state.showPassword ? "text" : "password"
+              } 
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={this.handleClickShowPassword}
+                    onMouseDown={this.handleMouseDownPassword}
+                  >
+                    {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              } 
+              onChange={this.inputSet} className="form-control" id="pass" name="password" />
           </div>
           <div className="form-group">
             <button onClick={this.loginForm} className="form-control btn btn-success">Login</button>
