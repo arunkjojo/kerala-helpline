@@ -14,3 +14,60 @@
 .mt-menu {
   margin-top: 70px;;
 }
+
+/* Post */
+.card-footer, .card-post .card-header {
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
+}
+.card-footer:last-child {
+  border-radius: 0 0 .625rem .625rem;
+}
+.card-small .card-body, .card-small .card-footer, .card-small .card-header {
+  padding: 1rem;
+}
+.card-footer:last-child {
+  border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px);
+}
+.border-top {
+  border-top: 1px solid #e1e5eb!important;
+}
+.card-footer {
+  padding: 1.09375rem 1.875rem;
+  background-color: #fff;
+  border-top: none;
+}
+
+.card-post__author-avatar--small {
+  width: 2.1875rem;
+  height: 2.1875rem;
+}
+.card-post__author-avatar {
+  width: 2.8125rem;
+  height: 2.8125rem;
+  box-shadow: 0 0 0 0.125rem #fff, 0 0.1875rem 0.4375rem rgb(90 97 105 / 50%);
+  display: block;
+  border-radius: 50%;
+  text-indent: -9999px;
+}
+.card-post__author-avatar, .card-post__image {
+  background-size: cover;
+  background-position: 50%;
+}
+.card-post__author-name {
+  font-weight: 500;
+}
+.text-muted {
+  color: #868e96!important;
+}
+
+body.private{
+  background: #f5f6f8;
+}
+
+.card {
+  background-color: #fff;
+  border: none;
+  border-radius: .625rem;
+  box-shadow: 0 0.46875rem 2.1875rem rgb(90 97 105 / 10%), 0 0.9375rem 1.40625rem rgb(90 97 105 / 10%), 0 0.25rem 0.53125rem rgb(90 97 105 / 12%), 0 0.125rem 0.1875rem rgb(90 97 105 / 10%);
+}

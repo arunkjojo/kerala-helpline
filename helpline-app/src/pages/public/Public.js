@@ -1,10 +1,5 @@
 import React from 'react';
-
-import {
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom';
+import {Switch,Route,Link} from 'react-router-dom';
 import Login from './Login';
 import ForgotPassword from './ForgotPassword';
 import Register from './Register';
@@ -49,7 +44,7 @@ class Public extends React.Component{
 
         <footer className="mt-auto text-white-50">
           <p>Project work done at <a  className="text-white">IHRD Manjeswar</a>, by 
-          <a target="_blank" href="https://twitter.com/arunjojo" className="text-white">@arunjojo</a>, 
+          <a target="_blank" href="https://twitter.com/arunkbil" className="text-white">@arunjojo</a>, 
           <a target="_blank" href="https://twitter.com/ravikiran" className="text-white">@ravikiran.p</a> and 
           <a target="_blank" href="https://twitter.com/prajina.k" className="text-white">@prajina.k</a></p>
         </footer>

@@ -52,7 +52,7 @@ import Cookies from 'js-cookie';
         // console.log(status+' '+typeof(status)+' '+typeof(Cookies.get('user')));
         if(status) {
             this.user = JSON.parse(Cookies.get('user'));
-            // console.log(this.user);
+            // console.log(this.user.id);
             this.authenticated = true;
         }
         return this.authenticated;
