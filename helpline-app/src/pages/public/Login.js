@@ -21,7 +21,7 @@ class Login extends Component{
     }
     this.loginForm = this.loginForm.bind(this);
     if(Auth.isAuth()){
-      this.props.history.push('/app/');
+      this.props.history.push('/app');
     }
   }
 

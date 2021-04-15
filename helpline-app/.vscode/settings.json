@@ -1,11 +1,16 @@
 {
     "cSpell.ignoreWords": [
+        "addpost",
         "alappuzha",
         "ernakulam",
+        "forgotpassword",
+        "get",
         "kannur",
         "kasaragod",
         "kollam",
         "kottayam",
+        "localbodies",
+        "localbody",
         "malappuram",
         "palakkad",
         "panjayath",
@@ -13,6 +18,8 @@
         "thiruvananthapuram",
         "thrissur",
         "toastr",
+        "ttfb",
+        "usnm",
         "usrtype",
         "wayanad"
     ]

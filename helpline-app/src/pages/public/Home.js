@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 
 class Home extends Component{
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
   render(){
     return(
@@ -12,7 +12,7 @@ class Home extends Component{
             <h1>Helpline Kerala - An attempt to help the needy</h1>
             <p className="lead">Every one have a compassionate heart, Helpline Kerala tries to find a solution with the help of technology to create a platform which connects the needy, their needs, campaigns for a cause to like minded people who are near to them. We expect people like you can create more impact than technology.</p>
             <p className="lead">
-            <a href="/app/home" className="btn btn-lg btn-secondary fw-bold border-white bg-white">So, Join with us</a>
+            <a href="/app" className="btn btn-lg btn-secondary fw-bold border-white bg-white">So, Join with us</a>
             </p>
         </div>
 

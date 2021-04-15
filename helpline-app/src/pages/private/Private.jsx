@@ -2,18 +2,18 @@ import React from 'react';
 import Posts from './Posts';
 import Addpost from './Addpost';
 import Logout from './Logout';
+import Profile from './Profile';
 import ProtectedRoute from './ProtectedRoute';
 import {
   Switch,
-  Route,
   Link
 } from 'react-router-dom';
 
 class Private extends React.Component{
   
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
   componentDidMount() {
     document.getElementById('body').className='private';
@@ -29,20 +29,20 @@ class Private extends React.Component{
         <header>
           <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-              <a className="nav-link active" >Helpline Kerala</a>
+              <h6 className="nav-link active" >Helpline Kerala</h6>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                   <li class="nav-item">
-                    <Link className="nav-link active"  to="/app/">Home</Link>
+                    <Link className="nav-link active"  to="/app">Home</Link>
                   </li>
                   <li class="nav-item">
                     <Link className="nav-link"  to="/app/create">Add Post</Link>
                   </li>
                   <li class="nav-item">
-                    <Link className="nav-link"  to="/app/">Profile</Link>
+                    <Link className="nav-link"  to="/app/profile">Profile</Link>
                   </li>
                   <li class="nav-item">
                     <Link className="nav-link"  to="/app/logout">Logout</Link>
@@ -56,6 +56,7 @@ class Private extends React.Component{
         <main className="px-3 mt-menu">
           <Switch>
             <ProtectedRoute path="/app" exact component={Posts}/> 
+            <ProtectedRoute path="/app/profile" component={Profile}/>
             <ProtectedRoute path="/app/create" component={Addpost}/>
             <ProtectedRoute path="/app/logout" component={Logout}/>
           </Switch>

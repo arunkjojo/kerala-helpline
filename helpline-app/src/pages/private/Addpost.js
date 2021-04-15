@@ -8,7 +8,7 @@ class Addpost extends React.Component{
         this.state = {
             message : '',
             view_list : '',
-            assects : '',
+            assets : '',
             type : '',
             latitudeValue : '',
             longitudeValue : ''
@@ -39,9 +39,9 @@ class Addpost extends React.Component{
         
     }
 
-    assectsSelect = (e) => {
+    assetsSelect = (e) => {
         this.setState({
-            assects : e.target.files[0].name,
+            assets : e.target.files[0].name,
             type : e.target.files[0].type.split('/')[0]
         });
         // console.log(e.target.files[0].name,e.target.files[0].type.split('/')[0]);
@@ -59,7 +59,7 @@ class Addpost extends React.Component{
         var dat={
             user_id : this.user.id,
             message : this.state.message,
-            assects : this.state.assects,
+            assets : this.state.assets,
             type : this.state.type,
             view_list : this.state.view_list,
             latitudeValue : this.state.latitudeValue,
@@ -69,13 +69,13 @@ class Addpost extends React.Component{
         // if((!dat.latitudeValue) && (!dat.longitudeValue)){
         //     toastr.warning("Enable your location, it useful to HELPERS", "Enable your location!");
         // }
-        if((dat.message==='') && (dat.assects==='')){
+        if((dat.message==='') && (dat.assets==='')){
             toastr.warning("What you need", "Inform to HELPERS!");
         }
         if(dat.view_list===''){
             toastr.warning("Who can see your request?", "Who can see?");
         }
-        if(dat.user_id !== '' && dat.latitudeValue !== '' && dat.longitudeValue !== '' && (dat.message !== '' || dat.assects !== '')){
+        if(dat.user_id !== '' && dat.latitudeValue !== '' && dat.longitudeValue !== '' && (dat.message !== '' || dat.assets !== '')){
             axios.post('http://api.helplinekerala.com/add_post.php',dat)
             .then( response =>{
                 // handle success
@@ -97,12 +97,13 @@ class Addpost extends React.Component{
                     <div className="form-group">
                         <label htmlFor="message">Enter your message</label><br/>
                         <textarea cols="110" onChange={this.inputSet} className="form-control" placeholder="Type your message" id="message" autoFocus autoComplete name="message"></textarea>
-                        {/* <input type="text"  placeholder="Type your message" id="message" name="message"/> */}
                     </div>
+
                     <div className="form-group">
-                        <label htmlFor="assects">Image / Video</label><br/>
-                        <input type="file" onChange={this.assectsSelect} id="assects" name="assects" accept="image/*,video/*"/>
+                        <label htmlFor="assets">Image / Video</label><br/>
+                        <input type="file" onChange={this.assetsSelect} id="assets" name="assets" accept="image/*,video/*"/>
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="viewList">Who can see this post</label><br/>
                         <div id="viewList" className="form-group">
