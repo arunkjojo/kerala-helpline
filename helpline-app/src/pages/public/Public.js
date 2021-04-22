@@ -43,10 +43,9 @@ class Public extends React.Component{
         </main>
 
         <footer className="mt-auto text-white-50">
-          <p>Project work done at <a  className="text-white">IHRD Manjeswar</a>, by 
-          <a target="_blank" href="https://twitter.com/arunkbil" className="text-white">@arunjojo</a>, 
-          <a target="_blank" href="https://twitter.com/ravikiran" className="text-white">@ravikiran.p</a> and 
-          <a target="_blank" href="https://twitter.com/prajina.k" className="text-white">@prajina.k</a></p>
+          <p>Project work done at <p  className="text-white">IHRD Manjeswar</p>, by 
+          {/* <a target="_blank" href="https://twitter.com/arunkbil" className="text-white">@arunjojo</a>,  */}
+          <p className="text-white">@arunjojo</p>,@ravikiran.p and @prajina.k</p>
         </footer>
       </div>
       </div>
