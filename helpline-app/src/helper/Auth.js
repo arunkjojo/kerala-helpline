@@ -49,7 +49,7 @@ import Cookies from 'js-cookie';
 
     isAuth(){
         var status=Cookies.get('user');
-        // console.log(status);
+        console.log(status+' '+typeof(status)+' '+typeof(Cookies.get('user')));
         if(status) {
             this.user = JSON.parse(Cookies.get('user'));
             // console.log(this.user.id);

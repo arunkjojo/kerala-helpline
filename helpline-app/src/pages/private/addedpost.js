@@ -89,12 +89,12 @@ class Addpost extends React.Component{
                 const reader = new FileReader();
         
                 reader.onload = (e) => {
-                    const fileAsArray = new Uint8Array((this.state.file).result);
+                    const fileAsArray = new Uint8Array((this.state.file as any).result as ArrayBuffer);
                     const compressedFileArray = pako.deflate(fileAsArray);
                     const compressedFile = compressedFileArray.buffer;
-                    const dataToUpload = new Blob([compressedFile], {type: this.state.file.type});
-                    let fileToUpload = new Blob([dataToUpload], {type: this.state.file.type});
-                    data.append('file', fileToUpload, this.state.file.name);
+                    const dataToUpload = new Blob([compressedFile], {type: file.type});
+                    let fileToUpload = new Blob([dataToUpload], {type: file.type});
+                    data.append('file', fileToUpload, file.name);
                     console.log(data);
                 }
             }
