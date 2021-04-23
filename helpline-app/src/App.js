@@ -18,12 +18,14 @@ class App extends React.Component{
       <BrowserRouter>
         <Switch>
           <Route path="/public"> 
-            {!Auth.isAuth() && <Public/>}
+            <Public/>
           </Route>
           
           <Route path="/app"> 
-            {Auth.isAuth() && <Private/>}
+            {Auth.isAuth() ? <Private/> : <Redirect to="/" />}
           </Route>
+          
+
           <Route exact path="/">
           {Auth.isAuth() ? <Redirect to="/app" /> : <Redirect to="/public" />}
         </Route>

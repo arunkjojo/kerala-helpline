@@ -20,7 +20,7 @@ class Posts extends React.Component{
     componentDidMount()
     {
         const user = Cookies.getJSON("user");
-        return axios.post('http://api.helplinekerala.com/get_data.php',{
+        return axios.post('http://api.helplinekerala.com/get_posts.php',{
             user_id:user.id
         })
         .then( response =>{
@@ -38,8 +38,8 @@ class Posts extends React.Component{
     
     render(){
         
-        var postItems = this.state.posts.map((post) =>
-            <div className="col-sm-6 col-lg-4 mb-4">
+        var postItems = this.state.posts.map((post, i) =>
+            <div className="col-sm-6 col-lg-4 mb-4" key={i}>
                 <div className="card">
                 {(post.image_video)? <svg className="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">{post.image_video}</text></svg>: ""}
 

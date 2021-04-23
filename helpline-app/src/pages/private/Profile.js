@@ -33,6 +33,14 @@ class Profile extends Component{
         
         console.log(this.state);
     }
+
+    profileImageChange = (e)=>{
+        // console.log(e.target.name+' '+e.target.value);
+        this.setState({ [e.target.name] : (e.target.value)});
+        
+        console.log(this.state);
+    }
+
     validation =(ev)=>{
         const txt = /[A-Za-z]/;
         let nm=ev.target.value.split('');
@@ -118,7 +126,7 @@ class Profile extends Component{
                 Auth.profile(dat).then(response=>{
                     console.log(response.data.user);
                     if(Auth.isAuth()){
-                        this.props.history.push('/app');
+                        window.location.replace("/app");
                     }
                 })
                 .catch(error => {
@@ -142,6 +150,10 @@ class Profile extends Component{
         return(
             <div className="container">
                 <form className="form-group" noValidate>
+                    <div className="form-group">
+                        <label htmlFor="pro_img">Profile Image</label>
+                        <Input type="file" value={this.state.profileImage} onChange={this.profileImageChange} onKeyPress={this.validation} className="form-control" id="username" name="userName" placeholder="Enter your Name" required/>
+                    </div>
                     <div className="form-group">
                         <label htmlFor="username">Name</label>
                         <Input type="text" autoFocus value={this.state.userName} onChange={this.inputSet} onKeyPress={this.validation} className="form-control" id="username" name="userName" placeholder="Enter your Name" required/>
