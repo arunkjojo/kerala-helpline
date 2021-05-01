@@ -253,7 +253,7 @@ class Addpost extends React.Component{
             }).then(response=>{
                 console.log(response);
                 if(response.data.status){
-                    window.location.replace("/app");
+                    window.location.replace("../app");
                 }
             })
             .catch(function (error) {
