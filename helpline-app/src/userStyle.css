@@ -1,4 +1,8 @@
 .profilePic {
-    height: 150px;
+    /* height: 150px; */
     width: 150px;
+    text-align:center;
+    display:flex; 
+    align-items:center;
+    justify-content:center;
 }

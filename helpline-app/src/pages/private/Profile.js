@@ -168,9 +168,9 @@ class Profile extends Component{
             <div className="container">
                 <form className="form-group" noValidate>
                     <div className="form-group">
-                        <label htmlFor="pro_img">Profile Image</label><br/>
-                        <Image src={this.state.profile_pic} style={style} id="pro_img" className="profilePic" roundedCircle />
-                        {/* <Input type="file" value={this.state.profile_pic} onChange={this.profileImageChange} className="form-control" id="profile_pic" name="profile_pic" placeholder="Upload Profile Image"/> */}
+                        <Image src={this.state.profile_pic} style={style} className="profilePic" roundedCircle />
+                        {/* <label htmlFor="pro_img">Profile Image</label><br/> 
+                        <Input type="file" value={this.state.profile_pic} onChange={this.profileImageChange} className="form-control" id="profile_pic" name="profile_pic" placeholder="Upload Profile Image"/> */}
                     </div>
                     <div className="form-group">
                         <label htmlFor="username">Name</label>
@@ -239,7 +239,7 @@ class Profile extends Component{
                         </Select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="area">Upddate Your Location</label>
+                        <label htmlFor="area">Update Your Location</label>
                         <Input type="text" value={this.state.area} onChange={this.inputSet} className="form-control" id="area" name="area" placeholder="Enter your Location" required noValidate/>
                     </div>
                     <div className="form-group">
