@@ -8,7 +8,6 @@ import {
 import Public from './pages/public/Public';
 import Private from './pages/private/Private';
 import Auth from './helper/Auth';
-import ProtectedRoute from './pages/private/ProtectedRoute';
 
 class App extends React.Component{
   
@@ -19,13 +18,14 @@ class App extends React.Component{
       <BrowserRouter>
         <Switch>
           <Route path="/public"> 
-            {!Auth.isAuth() && <Public/>}
+            <Public/>
           </Route>
-
-          <ProtectedRoute path="/app"> 
-            <Private/>
-          </ProtectedRoute>
           
+          <Route path="/app"> 
+            {Auth.isAuth() ? <Private/> : <Redirect to="/" />}
+          </Route>
+          
+
           <Route exact path="/">
           {Auth.isAuth() ? <Redirect to="/app" /> : <Redirect to="/public" />}
         </Route>

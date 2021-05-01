@@ -4,7 +4,7 @@ class Logout extends Component{
   constructor(props){
     super(props);
     Auth.logout();
-    window.location.replace('../public');
+    window.location.replace('/');
   }
   render() {
     return null;

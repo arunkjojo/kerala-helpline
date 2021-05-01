@@ -14,15 +14,15 @@ import Input from "@material-ui/core/Input";
 class Login extends Component{
   constructor(props){
     super(props);
-    if(Auth.isAuth()){
-      this.props.history.push('/app');
-    }
     this.state = {
       mobileNumber : "",
       password: "",
       showPassword: false
     }
     this.loginForm = this.loginForm.bind(this);
+    if(Auth.isAuth()){
+      this.props.history.push('/app');
+    }
   }
 
   inputSet = (e)=>{
@@ -59,7 +59,7 @@ class Login extends Component{
       }if(dat.password.length > 7 && dat.password.length < 17 && dat.mobile.length===10){
         // console.log(dat.mobile+' '+dat.password);
         Auth.login(dat).then(response=>{
-          console.log(response.data.user);
+          // console.log(response.data.user);
           if(Auth.isAuth()){
             this.props.history.push('/app');
           }
@@ -81,7 +81,7 @@ class Login extends Component{
         <form className="form-group">
           <div className="form-group">
             <label htmlFor="mobile">Mobile Number</label>
-            <Input type="number" autoFocus onChange={this.inputSet} className="form-control" id="mobile" name="mobileNumber"/>
+            <Input type="text" placeholder="Enter Registered Mobile" autoComplete="off" onKeyPress={(event) => { if (!/[0-9]/.test(event.key)) { event.preventDefault(); } }} autoFocus onChange={this.inputSet} className="form-control" id="mobile" name="mobileNumber"/>
           </div>
           <div className="form-group">
             <label htmlFor="pass">Password</label>
@@ -99,7 +99,7 @@ class Login extends Component{
                   </IconButton>
                 </InputAdornment>
               } 
-              onChange={this.inputSet} className="form-control" id="pass" name="password" />
+              onChange={this.inputSet} placeholder="Enter Registered Password" className="form-control" id="pass" name="password" />
           </div>
           <div className="form-group">
             <button onClick={this.loginForm} className="form-control btn btn-success">Login</button>

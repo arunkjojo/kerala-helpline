@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import {Link} from 'react-router-dom';
 import toastr from 'toastr';
 import Auth from '../../helper/Auth';
+// import history from './helper/history';
 
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
@@ -9,20 +9,17 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 
-// import history from './helper/history';
-
-class Login extends Component{
+class ForgotPassword extends Component{
   constructor(props){
     super(props);
-    if(Auth.isAuth()){
-      this.props.history.push('/app');
-    }
     this.state = {
       mobileNumber : "",
-      password: "",
-      showPassword: false
+      password: ""
     }
-    this.loginForm = this.loginForm.bind(this);
+    this.forgotForm = this.forgotForm.bind(this);
+    if(Auth.isAuth()){
+      this.props.history.push('/app/');
+    }
   }
 
   inputSet = (e)=>{
@@ -30,18 +27,10 @@ class Login extends Component{
     if(e.target.value && e.target.name){
       this.setState({ [e.target.name] : (e.target.value)});
     }
-    console.log(this.state);
+    // console.log(this.state);
   }
 
-  handleClickShowPassword = () => {
-    this.setState({showPassword: !this.state.showPassword });
-  };
-  
-  handleMouseDownPassword = (e) => {
-    e.preventDefault();
-  };
-
-  loginForm = (e)=>{
+    forgotForm = (e)=>{
     e.preventDefault();
     var dat={
       mobile : this.state.mobileNumber,
@@ -49,19 +38,19 @@ class Login extends Component{
     }
     
     if(dat.mobile && dat.password){
-    // eslint-disable-next-line react-hooks/rules-of-hooks
       if(dat.password.length < 8){
-        toastr.warning("Password must be minimum 8 characters", "Invalid Password Details");
-      }if(dat.password.length > 16){
-        toastr.warning("Password must be maximum 16 characters", "Invalid Password Details");
-      }if(dat.mobile.length !== 10){
-        toastr.warning("Please enter correct mobile number", "Invalid Mobile Details");
-      }if(dat.password.length > 7 && dat.password.length < 17 && dat.mobile.length===10){
+        toastr.warning("Password must be minimum 8 characters", "Invalid Details");
+      } 
+      if(dat.mobile.length<10){
+        toastr.warning("Mobile number must be 10 digits", "Invalid Details");
+      }
+      if(dat.password.length >= 8 && dat.mobile.length===10){
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         // console.log(dat.mobile+' '+dat.password);
-        Auth.login(dat).then(response=>{
-          console.log(response.data.user);
+        Auth.forgotPassword(dat).then(response=>{
+          //console.log(response.data.user);
           if(Auth.isAuth()){
-            this.props.history.push('/app');
+            this.props.history.push('/app/');
           }
         }).catch(error => {
           
@@ -71,6 +60,7 @@ class Login extends Component{
           // console.error("error", error);
         });
       }
+
     }
     
   }
@@ -81,7 +71,7 @@ class Login extends Component{
         <form className="form-group">
           <div className="form-group">
             <label htmlFor="mobile">Mobile Number</label>
-            <Input type="number" autoFocus onChange={this.inputSet} className="form-control" id="mobile" name="mobileNumber"/>
+            <Input type="text" onKeyPress={(event) => { if (!/[0-9]/.test(event.key)) { event.preventDefault(); } }} autoFocus onChange={this.inputSet} placeholder="Enter Registered Mobile" autoComplete="off" className="form-control" id="mobile" name="mobileNumber"/>
           </div>
           <div className="form-group">
             <label htmlFor="pass">Password</label>
@@ -99,19 +89,16 @@ class Login extends Component{
                   </IconButton>
                 </InputAdornment>
               } 
-              onChange={this.inputSet} className="form-control" id="pass" name="password" />
+              onChange={this.inputSet} placeholder="Enter New Password" className="form-control" id="pass" name="password" />
           </div>
           <div className="form-group">
-            <button onClick={this.loginForm} className="form-control btn btn-success">Login</button>
+            <button onClick={this.forgotForm} className="form-control btn btn-success">Reset Password</button>
           </div>
         </form>
-        <div className="container">
-          <Link to="./forgotpassword">Forgot Password</Link>
-        </div>
       </div>
       
     );
   }
   
 }
-export default Login;
+export default ForgotPassword;

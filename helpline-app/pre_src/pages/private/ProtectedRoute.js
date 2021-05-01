@@ -11,7 +11,7 @@ function ProtectedRoute({ component: Component, ...rest }){
                 if(Auth.isAuth()){
                     return <Component />
                 }else{
-                    return <Redirect to={{pathname:'/public/login',state:{form:props.location}}} />
+                    return <Redirect to={{pathname:'/login',state:{form:props.location}}} />
                 }
             }
         }

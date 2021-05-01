@@ -27,24 +27,24 @@ class Private extends React.Component{
     return(
       <div>
         <header>
-          <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div className="container-fluid">
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
               <h6 className="nav-link active" >Helpline Kerala</h6>
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
               </button>
-              <div className="collapse navbar-collapse" id="navbarCollapse">
-                <ul className="navbar-nav me-auto mb-2 mb-md-0">
-                  <li className="nav-item">
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item">
                     <Link className="nav-link active"  to="/app">Home</Link>
                   </li>
-                  <li className="nav-item">
+                  <li class="nav-item">
                     <Link className="nav-link"  to="/app/create">Add Post</Link>
                   </li>
-                  <li className="nav-item">
+                  <li class="nav-item">
                     <Link className="nav-link"  to="/app/profile">Profile</Link>
                   </li>
-                  <li className="nav-item">
+                  <li class="nav-item">
                     <Link className="nav-link"  to="/app/logout">Logout</Link>
                   </li>
                 </ul>

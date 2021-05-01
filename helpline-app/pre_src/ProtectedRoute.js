@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route,Redirect} from 'react-router-dom';
-import Auth from '../../helper/Auth';
+import Auth from './helper/Auth';
 
 function ProtectedRoute({ component: Component, ...rest }){
 
@@ -11,7 +11,7 @@ function ProtectedRoute({ component: Component, ...rest }){
                 if(Auth.isAuth()){
                     return <Component />
                 }else{
-                    return <Redirect to={{pathname:'/public/login',state:{form:props.location}}} />
+                    return <Redirect to={{pathname:'/login',state:{form:props.location}}} />
                 }
             }
         }

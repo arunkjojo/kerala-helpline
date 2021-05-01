@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+
 import { Image } from "react-bootstrap";
 
 class Posts extends React.Component{
@@ -19,10 +20,8 @@ class Posts extends React.Component{
     componentDidMount()
     {
         const user = Cookies.getJSON("user");
-        return axios.get('http://api.helplinekerala.com/get_posts.php',{
-            params: {
-                user_id:user.id
-            }
+        return axios.post('http://api.helplinekerala.com/get_posts.php',{
+            user_id:user.id
         })
         .then( response =>{
             // handle success
@@ -43,8 +42,9 @@ class Posts extends React.Component{
             <div className="col-sm-6 col-lg-4 mb-4" key={i}>
                 <div className="card">
                 {(post.image_video)? 
-                // <svg className="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">{post.image_video}</text></svg>
-                <Image src={post.path}/>: ""}
+                <Image className="bd-placeholder-img card-img-top" width="100%" height="200" src={post.path} />
+                // <svg className="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">{post.path}</text></svg>
+                : ""}
 
                     <div className="card-body">
                     <p className="card-text">{post.message}</p>
